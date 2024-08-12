@@ -1,0 +1,29 @@
+    <div class="position_div">
+        <h4> Pontuação Geral do Time: </h4>
+        <div class="chart_ger">
+            <canvas id = "ger" ></canvas>
+            <script>create_chartpie("ger",{{ pont_geral | safe}},"Geral")</script>
+        </div>
+        <br/>
+        <div class="chart_group">
+            <div class="chart_ger_pie">
+              <canvas id = "aut" ></canvas>
+              <script>create_chartpie("aut",{{ pont_aut | safe}},"Automação")</script>
+            </div>
+            <br/>
+            <div class="chart_ger_pie">
+                <canvas id = "elet" ></canvas>
+                <script>create_chartpie("elet",{{ pont_elet | safe}},"Elétrica")</script>
+            </div>
+            <br/>
+            <div class="chart_ger_pie">
+                <canvas id = "elemec" ></canvas>
+                <script>create_chartpie("elemec",{{ pont_elemec | safe}},"Eletromecânica")</script>
+            </div>
+            <br/>
+            <div class="chart_ger_pie">
+              <canvas id = "mec" ></canvas>
+              <script>create_chartpie("mec",{{ pont_mec | safe}},"Mecânica")</script>
+            </div>
+        </div>
+      </div>

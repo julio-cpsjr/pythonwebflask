@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if current_user.cargo == "Automacao"%}
+        {% include "automacao.html" %}
+    {% endif%}
+    {% if current_user.cargo == "Eletrica"%}
+        {% include "eletrica.html"%}
+    {% endif%}
+{% endblock %}

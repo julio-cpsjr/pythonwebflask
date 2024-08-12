@@ -1,0 +1,105 @@
+
+<!doctype html>
+<html lang="pt-br" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Techub - Skap Online</title>   
+    <link rel="icon" href="{{ url_for('static', filename='img/Techub_black.png')}}" type="image/x-icon">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/base.module.css') }}" rel="stylesheet">
+    <meta name="theme-color" content="#712cf9">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="{{ url_for('static', filename='js/creators.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="{{ url_for('static', filename='js/create_chartpie.js')}}"></script>
+</head>
+<body>     
+<main>
+    <br/>
+    <ul class="nav justify-content-end">
+      <li>
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/house-fill.svg')}}" alt="house"> Home</a>
+      </li>
+      {% if current_user.is_authenticated %}
+        {% if current_user.cargo == "Lideranca" %}
+        <li >
+          <a href="{{ url_for('team') }}"><img src="{{ url_for('static', filename='img/diagram-3-fill.svg')}}" alt="team"> Team</a>
+        </li>
+        {% else %}
+        <li >
+          <a href="{{ url_for('form') }}"><img src="{{ url_for('static', filename='img/clipboard-check.svg')}}" alt="skap"> Skap</a>
+        </li>
+        {% endif %}
+      <li >
+        <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/person.svg')}}" alt="logout"> Logout</a>
+      </li>
+      {% else %}
+      <li >
+        <a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='img/person-fill.svg')}}" alt="login"> Login</a>
+      </li>
+      {% endif %}
+    </ul>
+    <br/>
+    {% block navtabs%}
+    {% endblock%}
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages%}
+            <div  class="d-flex justify-content-center">
+                <ul class="flash" >
+                    {% for message in messages %}
+                      {% if message == "Logged in" %}
+                      <li id="div_flash" class="list-group-item list-group-item-success" >
+                        {{ message}}
+                      </li>
+                      {% endif%}
+                      {% if message == "Logged out"%}
+                      <li id="div_flash" class="list-group-item list-group-item-warning" >
+                        {{ message }}
+                      </li>
+                      {% endif%}
+                      {% if message == "Invalid Login" %}
+                      <li id="div_flash" class="list-group-item list-group-item-error" >
+                        {{ message }}
+                      </li>
+                      {% endif%}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock%}
+     <br/>
+    <footer class="footer"> 
+      <p class="copy_right">
+         <span><img src="{{ url_for('static', filename='img/cloud-check-fill.svg')}}" alt="cloud"> Skap Online</span>  &copy; 2023
+      </p>
+     </footer>
+  </div>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/creators.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script>
+  const myInterval = setTimeout(removeFlash, 2000);
+
+  function removeFlash(){
+   const element = document.getElementById('div_flash');
+   if (element){
+     element.remove();
+   }
+ }
+</script>
+ </body>
+</html>
+
+ 
+ 

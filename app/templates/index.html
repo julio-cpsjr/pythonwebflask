@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.module.css')}}">
+<div class="home_control">
+  <section>
+    {% with messages = get_flashed_messages()%}
+    {% if messages%}
+      <div class="d-flex justify-content-center">
+        {% for message in messages %}
+          {%if message == "Falha no banco"%}
+            <div id="div_flash" class="alert alert-danger" role="alert">
+              {{message}}
+            </div>
+          {%endif%}
+        {%endfor%}
+      </div>
+    {% endif%}
+    {%endwith%}
+    <h3> BEM VINDO(A) À SKAP ONLINE, {{ info }} !!! </h3>
+    <br/>
+    {% if info_nota == -1 %}
+    <h4> Acompanhe o seu time através da Aba TEAM !! </h4>
+    <br/>
+    {%endif%}
+    {% if current_user.is_authenticated %}
+      {% if current_user.cargo != "Lideranca" %}
+        {% if info_nota > 0 %}
+        <h4> A sua nota atual na SKAP de Técnico em {{ info_cargo }} é: {{ info_nota }}% </h4>
+        <br/>
+        {% endif%}
+        {% if info_nota == 0 %}
+          <h4> Você ainda não preencheu a sua SKAP </h4>
+          <h4> Por favor, clique na aba Skap ou no botão abaixo </h4>
+          <br/>
+        {% endif%}
+      {% endif%}
+    {% endif%}
+
+    <img src="{{url_for('static', filename='img/cervejaria_ambev.png')}}" alt='cervejaria ambev'/>
+    <br/>
+    {% if current_user.is_anonymous %}
+    <a class="btn_a" href="{{url_for('login')}}"> Clique aqui para logar</a>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+      {% if current_user.cargo != "Lideranca"%}
+        <a class="btn_a" href="{{url_for('form')}}"> Preencha a Skap</a>
+      {% endif %}
+    {% endif %}
+  </section>
+</div>
+  {% endblock %}

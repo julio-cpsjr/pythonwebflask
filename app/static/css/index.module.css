@@ -1,0 +1,38 @@
+.btnindex{
+    background-color: #222;
+    color: #fff;
+    padding: 0.7em 1.2em;
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    border-color: #ffbb33;
+    border-radius: .5em;
+    margin-left: 1.5em;
+}
+
+.btnindex:hover{
+    color: #222;
+    background-color: #ffbb33;
+    border-color: #fff;
+}
+.home_control{
+    color: #fff;
+}
+
+.home_control img{
+    align-items: center;
+    border-radius: 3.5em;
+    width: 45%;
+}
+
+.btn_a{
+    border-radius: .5em;
+    border:solid;
+    padding: .7em .7em;
+    border-color: #fff;
+}
+
+.btn_a:hover{
+    border-color: #222;
+    background-color: #ffbb33;
+}

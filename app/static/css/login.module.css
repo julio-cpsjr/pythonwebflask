@@ -1,0 +1,56 @@
+
+section{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+
+.btnformskap{
+    background-color: #222;
+    color: #fff;
+    padding: 0.7em 1.2em;
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    border-color: #ffbb33;
+    border-radius: .5em;
+}
+
+.btnformskap:hover{
+    color: #222;
+    background-color: #ffbb33;
+    border-color: #fff;
+}
+
+.div_screen{
+    border-radius: .5em;
+    border-color: #fff;
+    background-color: #d88f07;
+    border-style: solid;
+    padding: 1em 2em 1em 2em;
+}
+
+.div_screen h2{
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_screen a{
+    color: #ffbb33;
+    border: solid;
+    border-radius: .5em;
+    border-color: #222;
+    padding: .2em .2em .2em .2em;
+    background-color: #222;
+}
+
+.div_screen a:hover{
+    color: #ffbb33;
+    border-color: #fff;
+    background-color: #222;
+}

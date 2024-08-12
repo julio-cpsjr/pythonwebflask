@@ -1,0 +1,102 @@
+{% extends 'base.html'%}
+{% block content%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.module.css')}}">
+<section>
+    <div class="div_screen">
+    <h2>Register</h2>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label >Username</label>
+            {{ form.username(class="form-control", placeholder="Nome para login")}}
+            {% if form.errors.username %}
+                <ul class="flashes">    
+                    {% for e in form.errors.username%}
+                    <li>{{ e }}</li> 
+                    {% endfor%}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label >Password</label>
+            {{ form.password(class="form-control", placeholder="Senha")}}  
+            {% if form.errors.password %}
+            <ul class="flashes">    
+                {% for e in form.errors.password%}
+                <li>{{ e }}</li> 
+                {% endfor%}
+            </ul>
+            {% endif %} 
+        </div>
+        <div class="form-group">
+            <label >Name</label>
+            {{ form.name(class="form-control", placeholder="Nome completo")}}
+            {% if form.errors.name %}
+                <ul class="flashes">    
+                    {% for e in form.errors.name%}
+                    <li>{{ e }}</li> 
+                    {% endfor%}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label >ID</label>
+            {{ form.number_id(class="form-control", placeholder="ID")}}
+            {% if form.errors.number_id %}
+                <ul class="flashes">    
+                    {% for e in form.errors.number_id%}
+                    <li>{{ e }}</li> 
+                    {% endfor%}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label >Email</label>
+            {{ form.email(class="form-control", placeholder="Email coorporativo")}}
+            {% if form.errors.email %}
+                <ul class="flashes">    
+                    {% for e in form.errors.email%}
+                    <li>{{ e }}</li> 
+                    {% endfor%}
+                </ul>
+            {% endif %}
+        </div>
+        <label> Selecione o seu cargo:</label>
+        <br/>
+        <select id="{{ form.cargo }}" class="form-select" aria-label="Default select example">
+            <option disabled="true" selected>Selecione o seu cargo</option>
+            <option value="Automacao">Automação</option>
+            <option value="Eletrica">Elétrica</option>
+            <option value="Eletromecanica">Eletromecânica</option>
+            <option value="Mecanica">Mecânica</option>
+            <option value="Lideranca">Liderança</option>
+        </select>
+        <br/>
+        <div class="form-group">
+            <label >Area</label>
+            {{ form.area(class="form-control", placeholder="sua_area")}}
+            {% if form.errors.area %}
+            <ul class="flashes">    
+                {% for e in form.errors.area%}
+                <li>{{ e }}</li> 
+                {% endfor%}
+              </ul>
+              {% endif %}
+        </div>
+        <label> Selecione o seu turno:</label>
+        <br/>
+        <select id="{{ form.turno }}" class="form-select" aria-label="Default select example">
+            <option disabled="true" selected>Selecione o seu turno</option>
+            <option value="ADM">Turno ADM</option>
+            <option value="A">Turno A</option>
+            <option value="B">Turno B</option>
+            <option value="C">Turno C</option>
+        </select>
+        <br/>
+        <br/>
+        <button type="submit" class="btnformskap"> Create User</button>
+    </form>
+</div>
+</section>
+
+{% endblock%}

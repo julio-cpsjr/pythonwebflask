@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="{{ url_for('static', filename='css/team.module.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/contents.css') }}" rel="stylesheet">
+
+<div class="navtabsteam">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="dash-tab" data-bs-toggle="tab" data-bs-target="#dash-tab-pane" type="button" role="tab" aria-controls="dash-tab-pane" aria-selected="true">Dashboard</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="aut-tab" data-bs-toggle="tab" data-bs-target="#aut-tab-pane" type="button" role="tab" aria-controls="aut-tab-pane" aria-selected="false">Automação</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="elet-tab" data-bs-toggle="tab" data-bs-target="#elet-tab-pane" type="button" role="tab" aria-controls="elet-tab-pane" aria-selected="false">Elétrica</button>
+    </li> 
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="elemec-tab" data-bs-toggle="tab" data-bs-target="#elemec-tab-pane" type="button" role="tab" aria-controls="elemec-tab-pane" aria-selected="false">Eletromecânica</button>
+    </li> 
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="mec-tab" data-bs-toggle="tab" data-bs-target="#mec-tab-pane" type="button" role="tab" aria-controls="mec-tab-pane" aria-selected="false">Mecânica</button>
+    </li> 
+  </ul>
+</div>
+<br/>
+<section >
+  <div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="dash-tab-pane" role="tabpanel" aria-labelledby="dash-tab" tabindex="0"><section>{% include "dashboard.html" %}</section></div>
+  <div class="tab-pane fade" id="aut-tab-pane" role="tabpanel" aria-labelledby="aut-tab" tabindex="0"><section>{% include "automacao_pie.html" %}</section></div>
+  <div class="tab-pane fade " id="elet-tab-pane" role="tabpanel" aria-labelledby="elet-tab" tabindex="0"><section>{% include "eletrica_pie.html" %}</section></div>
+  <div class="tab-pane fade " id="elemec-tab-pane" role="tabpanel" aria-labelledby="elemec-tab" tabindex="0"><section>{% include "eletromecanica_pie.html" %}</section></div>
+  <div class="tab-pane fade " id="mec-tab-pane" role="tabpanel" aria-labelledby="mec-tab" tabindex="0"><section>{% include "mecanica_pie.html" %}</section></div>
+  </div>
+</section>
+
+{% endblock %}

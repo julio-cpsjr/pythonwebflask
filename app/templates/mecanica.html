@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.module.css')}}">
+<section>
+<div>
+    <h5>{{ info }}, preencha a Skap com atenção </h5>
+</div>
+<form action="" method="POST" class="form">
+    {{ form.csrf_token }}
+    <img class="logo" src="{{ url_for('static', filename='img/trilhadecarreira.png')}}" alt='Trilha de carreira' />
+    <br/>
+    <h3> SKAP ONLINE -  Técnico em {{ current_user.cargo }} </h3>
+    <div class="input">
+        <div class="form_div">
+            <label>Nome: </label>
+            {{ current_user.name }}
+        </div>    
+        <div class="form_div">
+            <label>Área: </label>
+            {{ current_user.area}}
+        </div>
+        <div class="form_div">
+            <label>ID: </label>
+            {{ current_user.number_id}}
+        </div>
+        <div class="form_div">
+            <label>Turno: </label>
+            {{ current_user.turno}}
+        </div>
+    </div>
+    <hr/>
+    <div class="div">
+    <h4> Análise de Problemas <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço e executo as ferramentas básicas de solução de problemas (5 PQs, relato de anomalia). <div id="comentario">O funcionário conhece e executa as ferramentas básicas de solução de problemas (5 PQs, relato de anomalia)</div> {{ form.q1(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço as principais causas de anomalias dos indicadores da área. <div id="comentario">O funcionário conhece as principais causas de anomalias dos indicadores de </div> {{ form.q2(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Gero ações para tratativa para os problemas dentro do turno. <div id="comentario">O funcionário gera ações para tratativa para os problemas dentro do turno.</div> {{ form.q3(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Direciono a operação na solução dos problemas. <div id="comentario">O funcionário direciona a operação na solução dos problemas</div> {{ form.q4(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Teórico  <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Identifico e atuo em casos de falhas, compreendendo a causa fundamental. <div id="comentario">O funcionário identifica e atua em casos de falhas, compreendendo a causa fundamental.</div> {{ form.q5(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Interpreto e identifico RDP. <div id="comentario">O funcionário interpreta e identifica RDP.</div> {{ form.q6(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo propostas e elaboro planos de manutenção. <div id="comentario">O funcionário realiza propostas e elabora planos de manutenção. </div> {{ form.q7(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Domino e aplico conceitos do Pilar Manutenção. <div id="comentario">O funcionário domina e aplica conceitos do Pilar Manutenção. </div> {{ form.q8(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Domino e aplico a metodologia RCM. <div id="comentario">O funcionário domina e aplica a metodologia RCM. </div> {{ form.q9(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Programo atividades de manutenção para equipes fabril (júnior) e pleno. <div id="comentario"> O funcionário programa atividades de manutenção para equipes fabril (júnior) e pleno.</div> {{ form.q10(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Gestão de Indicadores <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o sonho da área, principais Ivs e Entendo o seu papel na área. <div id="comentario">O funcionário conhece o sonho da área, principais Ivs e entende o seu papel na área.</div> {{ form.q11(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Entendo e sei explicar o cascateamento de Ivs (estratégia  reunião diária  troca de turno). <div id="comentario"> O funcionário entende e sabe explicar o cascateamento de Ivs (estratégia   reunião diária   troca de turno)</div> {{ form.q12(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço minha meta diária e gerencio o próprio resultado no dia a dia. <div id="comentario">O funcionário conhece sua meta diária e gerencia o próprio resultado no dia a dia</div> {{ form.q13(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Treino demais funcionários nas ferramentas de gestão. <div id="comentario"> O funcionário treina demais conferentes nas ferramentas de gestão</div> {{ form.q14(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Procedimentos de segurança / DTO / monitoramento de segurança <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento em 100% dos itens do plano de tráfego. <div id="comentario"> O funcionário possui conhecimento em 100% dos itens do plano de tráfego</div> {{ form.q15(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento dos padrões e procedimentos de atividades críticas (SWI). <div id="comentario"> O funcionário possui conhecimento dos padrões e procedimentos de atividades críticas (SWI)</div> {{ form.q16(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo as tarefas de segurança (relato de incidente, abordagem, condição insegura.). <div id="comentario"> O funcionário executa as tarefas de segurança (relato de incidente, abordagem, condição insegura.)</div> {{ form.q17(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço os últimos SIFs da área e principais saídas. <div id="comentario"> O funcionário conhece os últimos SIFs da área e principais saídas</div> {{ form.q18(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sei analisar os principais indicadores de produtividade relacionado a atividades críticas e sua correlação com segurança. <div id="comentario"> O funcionário sabe analisar os principais indicadores de produtividade relacionado a atividades críticas e sua correlação com segurança </div> {{ form.q19(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Busco melhoria continua nos processos e condições em prol de segurança. <div id="comentario"> O funcionário busca melhoria continua nos processos e condições em prol de segurança</div> {{ form.q20(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Desenho Técnico <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Interpreto e tenho noções básicas de desenho técnico, como Identificação de tipo de vistas/perspectivas (isométrica, primeiro diedro, segundo diedro). <div id="comentario"> O funcionário possui interpretação e noções básicas de desenho técnico, como identificação de tipo de vistas/perspectivas (isométrica, primeiro diedro, segundo diedro). </div> {{ form.q21(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar leituras de indicações de tolerância, símbolos de acabamento, superfície e rugosidade. <div id="comentario"> O funcionário possui capacidade de realizar leituras de indicações de tolerância, símbolos de acabamento, superfície e rugosidade. </div> {{ form.q22(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento básico de CAD/Solidworks. <div id="comentario"> O funcionário possui conhecimento básico de CAD/Solidworks.</div> {{ form.q23(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de Desenho Técnico em Projetos. <div id="comentario"> O funcionário possui conhecimento de Desenho Técnico em Projetos</div> {{ form.q24(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Metrologia <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento dos sistemas (unidades) de medidas, como as unidades de vazão e pressão. <div id="comentario"> O funcionário possui conhecimento dos sistemas (unidades) de medidas, como as unidades de vazão e pressão.</div> {{ form.q25(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Utilizo com expertise as ferramentas e instrumentos de medição, como paquímetro, micrômetro, relógio comparador, torquímetro, pirômetro, goniômetro e manômetro. <div id="comentario"> O funcionário utiliza com expertise as ferramentas e instrumentos de medição, como paquímetro, micrômetro, relógio comparador, torquímetro, pirômetro, goniômetro e manômetro.</div> {{ form.q26(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento e capacidade de Utilização de ferramentas mais complexas como alinhador a laser, medidor ultrassônico, câmera termográfica, medidor de vibração, aquecedor indutivo de rolamentos. <div id="comentario"> O funcionário possui conhecimento e capacidade de utilização de ferramentas mais complexas como alinhador a laser, medidor ultrassônico, câmera termográfica, medidor de vibração, aquecedor indutivo de rolamentos.</div> {{ form.q27(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Elementos e Máquinas <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço e utilizo corretamente as ferramentas manuais e coletivas, como: lixadeira, furadeira, esmeril, guilhotina, dobradeira de tubos etc. <div id="comentario"> O funcionário conhece e utiliza corretamente as ferramentas manuais e coletivas, como: lixadeira, furadeira, esmeril, guilhotina, dobradeira de tubos etc.</div> {{ form.q28(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço e aplico as operações básicas de fabricação mecânica como: afiação de broca; Identificação de folgas axiais e radiais em um eixo; montagem e desmontagem de rolamento, Utilização de calibre de lâmina e alinhamento de polias e tensionamento de correias. <div id="comentario"> O funcionário conhece e aplica as operações básicas de fabricação mecânica como: afiação de broca; identificação de folgas axiais e radiais em um eixo; montagem e desmontagem de rolamento, utilização de calibre de lâmina e alinhamento de polias e tensionamento de correias. .</div> {{ form.q29(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de elementos básicos de máquinas, como: engrenagens, acoplamentos (alinhamentos), passos de rosca elementos de fixação, correias e materiais. <div id="comentario"> O funcionário possui conhecimento de elementos básicos de máquinas, como: engrenagens, acoplamentos (alinhamentos), passos de rosca elementos de fixação, correias e materiais. </div> {{ form.q30(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento  de calderaria, como dimensionamento e traçagem. <div id="comentario"> O funcionário possui conhecimento  de calderaria, como dimensionamento e traçagem.</div> {{ form.q31(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de ensaios mecânicos e esforços, como: tração, compressão e fadiga. <div id="comentario"> O funcionário possui conhecimento de ensaios mecânicos e esforços, como: tração, compressão e fadiga. </div> {{ form.q32(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento soluções de problemas de preditivas e capacidade de realização de análise básica de falhas mecânicas. <div id="comentario"> O funcionário possui conhecimento soluções de problemas de preditivas e capacidade de realização de análise básica de falhas mecânicas</div> {{ form.q33(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar dimensionamentos e instalações de componentes mecânicos. <div id="comentario"> O funcionário possui capacidade de realizar dimensionamentos e instalações de componentes mecânicos.</div> {{ form.q34(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento básico sobre execução de projetos mecânicos. <div id="comentario"> O funcionário possui conhecimento básico sobre execução de projetos mecânicos.</div> {{ form.q35(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento e aplicações de operações mais complexas como: Utilização de torno mecânico, furadeira e prensa. <div id="comentario"> O funcionário possui conhecimento e aplicações de operações mais complexas como: utilização de torno mecânico, furadeira e prensa.</div> {{ form.q36(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Hidráulica e Pneumática <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento e capacidade de realizar leitura de pressostato e manômetros; leitura de esquema pneumático e hidráulico. <div id="comentario"> O funcionário possui conhecimento e capacidade de realizar leitura de pressostato e manômetros; leitura de esquema pneumático e hidráulico. </div> {{ form.q37(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consigo identificar o problema e realizar a tratativa para solução através de análise do sistema pneumático e hidráulico. <div id="comentario"> O funcionário consegue identificar o problema e realizar a tratativa para solução através de análise do sistema pneumático e hidráulico.</div> {{ form.q38(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo a revisão de válvulas pneumáticas e cilindros hidráulicos ou pneumáticos. <div id="comentario"> O funcionário executa a revisão de válvulas pneumáticas e cilindros hidráulicos ou pneumáticos. </div> {{ form.q39(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Identifico travamento de válvula direcional e passagem entre câmara e pistão de cilindro (êmbolo). <div id="comentario"> O funcionário identifica travamento de válvula direcional e passagem entre câmara e pistão de cilindro (êmbolo).</div> {{ form.q40(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar melhorias nos sistemas hidráulicos e pneumáticos. <div id="comentario"> O funcionário possui capacidade de realizar melhorias nos sistemas hidráulicos e pneumáticos.</div> {{ form.q41(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar manutenção dos componentes hidráulicos. <div id="comentario"> O funcionário possui capacidade de realizar manutenção dos componentes hidráulicos.</div> {{ form.q42(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Mecânica dos Fluidos <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento básico sobre bombas. <div id="comentario"> O funcionário possui conhecimento básico sobre bombas;</div> {{ form.q43(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de noções básicas de termodinâmica, como: tipos de conversão, princípios de troca térmica (fluidos). <div id="comentario"> O funcionário possui conhecimento de noções básicas de termodinâmica, como: tipos de conversão, princípios de troca térmica (fluidos). </div> {{ form.q44(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento teórico sobre trocadores de calor. <div id="comentario"> O funcionário possui conhecimento teórico sobre trocadores de calor. </div> {{ form.q45(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento teórico e aplicação sobre os tipos de fluidos e juntas e sua Utilização dentro da Cervejaria. <div id="comentario"> O funcionário possui conhecimento teórico e aplicação sobre os tipos de fluidos e juntas e sua utilização dentro da Cervejaria. </div> {{ form.q46(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Identifico falhas sistêmicas de bombas, anomalias e componentes com necessidade de substituição. <div id="comentario"> O funcionário identifica falhas sistêmicas de bombas, anomalias e componentes com necessidade de substituição.</div> {{ form.q47(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento básico de Mecânica dos Fluídos e Termodinâmica para atuar na solução das falhas em bombas, como: cavitação, presença de ar no fluido, selo ou gaxeta danificada. <div id="comentario"> O funcionário possui conhecimento básico de Mecânica dos Fluídos e Termodinâmica para atuar na solução das falhas em bombas, como: cavitação, presença de ar no fluido, selo ou gaxeta danificada. </div> {{ form.q48(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento sobre trocadores de calor (tipos, placas, cascos e tubos) e sistemas de aquecimento como o CIP. <div id="comentario"> O funcionário possui conhecimento sobre trocadores de calor (tipos, placas, cascos e tubos) e sistemas de aquecimento como o CIP </div> {{ form.q49(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento sobre válvulas redutoras de pressão. <div id="comentario"> O funcionário possui conhecimento sobre válvulas redutoras de pressão. </div> {{ form.q50(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realização de manutenção de trocadores de calor. <div id="comentario"> O funcionário possui capacidade de realização de manutenção de trocadores de calor.</div> {{ form.q51(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de fluidos para trocador de calor, bomba e isolamento térmico. <div id="comentario"> O funcionário possui conhecimento de fluidos para trocador de calor, bomba e isolamento térmico. </div> {{ form.q52(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento para criticar e sugerir melhorias de trocador de calor. <div id="comentario"> O funcionário possui conhecimento para criticar e sugerir melhorias de trocador de calor.</div> {{ form.q53(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Soldagem Mecânica <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento básico de soldagem mecânica, distinguindo os tipos de processos. <div id="comentario"> O funcionário possui conhecimento básico de soldagem mecânica, distinguindo os tipos de processos. </div> {{ form.q54(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> realizo o processo de solda básica (ex. Pé de mesa). <div id="comentario"> O funcionário realiza o processo de solda básica (ex. Pé de mesa)</div> {{ form.q55(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimentos de Solda sanitária e tubulações. <div id="comentario"> O funcionário possui conhecimentos de Solda sanitária e tubulações. </div> {{ form.q56(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Identifico técnica de soldagem/usinagem mais adequada para manutenção. <div id="comentario"> O funcionário identifica técnica de soldagem/usinagem mais adequada para manutenção.</div> {{ form.q57(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço e aplica conhecimentos sobre Requisitos Legais e Normas - Calderias, NR12, NR13 ... (link com Mecânica). <div id="comentario"> O funcionário conhece e aplica conhecimentos sobre Requisitos Legais e Normas   Calderias, NR12, NR13 ... (link com Mecânica)</div> {{ form.q58(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento em Inspeção Soldagem Nr-13. <div id="comentario"> O funcionário possui conhecimento em Inspeção Soldagem Nr 13. </div> {{ form.q59(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo testes e ensaios não destrutivos em solda (líquido penetrante). <div id="comentario"> O funcionário realiza testes e ensaios não destrutivos em solda (líquido penetrante).</div> {{ form.q60(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Materiais <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento básico dos tipos de materiais para cada tipo de aplicação. <div id="comentario"> O funcionário possui conhecimento básico dos tipos de materiais para cada tipo de aplicação.</div> {{ form.q61(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento sobre polímeros e aditivos, como: suas aplicações, aditivos ABS e o que eles forneceram. <div id="comentario"> O funcionário possui conhecimento sobre polímeros e aditivos, como: suas aplicações, aditivos ABS e o que eles forneceram.</div> {{ form.q62(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de sugerir novos tipos de materiais para as aplicações. <div id="comentario"> O funcionário possui capacidade de sugerir novos tipos de materiais para as aplicações.</div> {{ form.q63(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar soldagem com argônio. <div id="comentario"> O funcionário possui capacidade de realizar soldagem com argônio.</div> {{ form.q64(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento de Engenharia de Materiais e tecnologias e contribui para o desenvolvimento de peças. <div id="comentario"> O funcionário possui conhecimento de Engenharia de Materiais e tecnologias e contribui para o desenvolvimento de peças.</div> {{ form.q65(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento sobres tipos e aplicações de ligas metálicas e tratamentos térmicos/usinagem. <div id="comentario"> O funcionário possui conhecimento sobres tipos e aplicações de ligas metálicas e tratamentos térmicos/usinagem.</div> {{ form.q66(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo capacidade de realizar e aplicar solda sanitária. <div id="comentario"> O funcionário possui capacidade de realizar e aplicar solda sanitária.</div> {{ form.q67(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Lubrificação e Manutenção <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento dos tipos de lubrificantes e graxas básicos (minerais e sintéticos); lubrificantes alimentícios e o nível correto de lubrificação dependendo da posição do instalador do redutor. <div id="comentario"> O funcionário possui conhecimento dos tipos de lubrificantes e graxas básicos (minerais e sintéticos); lubrificantes alimentícios e o nível correto de lubrificação dependendo da posição do instalador do redutor.</div> {{ form.q68(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo o armazenamento, manuseio de lubrificação e inspeção. <div id="comentario"> O funcionário realiza o armazenamento, manuseio de lubrificação e inspeção.</div> {{ form.q69(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço todo o regulamento do Toolkit de Lubrificação e Executo. <div id="comentario"> O funcionário conhece todo o regulamento do Toolkit de Lubrificação e executa.</div> {{ form.q70(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo o checklist de limpeza técnica. <div id="comentario"> O funcionário  executa o checklist de limpeza técnica.</div> {{ form.q71(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Interpretação de Código LIS. <div id="comentario"> O funcionário  interpretação de Código LIS.</div> {{ form.q72(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Elaboro e revisa procedimentos e toolkits da área de  manutenção. <div id="comentario"> O funcionário elabora e revisa procedimentos e toolkits da área de  manutenção.</div> {{ form.q73(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo planos preventivos mais complexos de manutenção. <div id="comentario"> O funcionário executa planos preventivos mais complexos de manutenção.</div> {{ form.q74(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sigo instrução de toolkit de limpeza propondo melhorias e otimizando status quo da máquina. <div id="comentario"> O funcionário segue instrução de toolkit de limpeza propondo melhorias e otimizando status quo da máquina.</div> {{ form.q75(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo e ensina Manutenção/overhaul em compressores e centrífuga. <div id="comentario"> O funcionário executa e ensina Manutenção/overhaul em compressores e centrífuga.</div> {{ form.q76(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo manutenção Mecânica em novas Tecnologias - Robótica -p/exemplo. <div id="comentario"> O funcionário Realiza manutenção Mecânica em novas Tecnologias   Robótica  p/exemplo.</div> {{ form.q77(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo conhecimento e capacidade para sugerir e realizar melhorias de manutenção nos procedimentos de overhaul. <div id="comentario"> O funcionário possui conhecimento e capacidade para sugerir e realizar melhorias de manutenção nos procedimentos de overhaul.</div> {{ form.q78(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> SAP / Excel / Power BI / WMS <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço e acessa os sistemas básicos de rotina e apps de segurança. <div id="comentario"> O funcionário conhece e acessa os sistemas básicos de rotina e apps de segurança.</div> {{ form.q79(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo noções básicas de SAP (Local de inst., lista técnica, código SAP, estoque, ordem de serviço). <div id="comentario"> O funcionário tem noções básicas de SAP (Local de inst., lista técnica, código SAP, estoque, ordem de serviço)</div> {{ form.q80(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consigo consultar a especificação de peças e materiais no sistema. <div id="comentario"> O funcionário consegue consultar a especificação de peças e materiais no sistema.</div> {{ form.q81(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Possuo noções básicas de CAD/Solidworks. <div id="comentario"> O funcionário possui noções básicas de CAD/Solidworks.</div> {{ form.q82(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consulto e Utilizo o Smartcheck - CIL Online. <div id="comentario"> O funcionário consulta e utiliza o Smartcheck   CIL Online.</div> {{ form.q83(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consulto e Utilizo o Coletor - Max. <div id="comentario"> O funcionário consulta e utiliza o Coletor Max.</div> {{ form.q84(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço e Utilizo o site MySemeq. <div id="comentario"> O funcionário conhece e utiliza o site MySemeq.</div> {{ form.q85(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço e Utilizo Preditiva Online. <div id="comentario"> O funcionário conhece e utiliza Preditiva Online.</div> {{ form.q86(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Utilizo as ferramentas e sistemas relacionados a Tecnologias - CNC, 3D, elementos finitos. <div id="comentario"> O funcionário utiliza as ferramentas e sistemas relacionados a Tecnologias   CNC, 3D, elementos finitos.</div> {{ form.q87(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço e Utilizo a plataforma de compras rápidas. <div id="comentario"> O funcionário conhece e utiliza a plataforma de compras rápidas.</div> {{ form.q88(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Food Safety <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito e papel da operação para a segurança alimentar. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina o papel da operação para a segurança alimentar.</div> {{ form.q89(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> GMP (BPF - boas práticas de fabricação) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais formas de se realizar boas práticas de produção. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina as principais formas de se realizar boas práticas de produção.</div> {{ form.q90(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> HACCP (CCP) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço qual o conceito e qual o CCP na máquina e célula. Quais os registros. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina o conceito e qual o CCP na máquina e célula. Quais os registros.</div> {{ form.q91(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Índices de controle (ICs) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito, quais os Índices de controle de sua máquina e célula,  e registro. Como são discutidos em reuniões do time. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina conceito, quais os Índices de controle de sua máquina e célula,  e registro. Como são discutidos em reuniões do time.</div> {{ form.q92(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Reclamação de Mercado (SAC) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito de SAC, como ocorre e quais as ações de prevenção na operação. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina o conceito de SAC, como ocorre e quais as ações de prevenção na operação.</div> {{ form.q93(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Indicadores de qualidade <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais o principais indicadores de qualidade de sua célula ou da linha. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina os principais indicadores de qualidade de sua célula ou da linha.</div> {{ form.q94(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-10 (eletricidade) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento e sabe identificar as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q95(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-13 (caldeiras e vasos de pressão) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q96(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-33 (espaço confinado) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q97(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-35 (serviços em altura) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q98(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> APR (análise preliminar de riscos) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço como realizar está análise de forma que se remeta a segurança plena numa atividade, importância da FISPQ no manuseio de produtos químicos e como utilizar adequadamente. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina como realizar está análise de forma que se remeta a segurança plena numa atividade, importância da FISPQ no manuseio de produtos químicos e como utilizar adequadamente.</div> {{ form.q99(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> EPIs <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço Conceito e quais os principais EPIs utilizados na operação do equipamento e na célula. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina o conceito e quais os principais EPIs utilizados na operação do equipamento e na célula</div> {{ form.q100(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Regras de ouro <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais são as  seis regras de outro da Cia e o que significa cada regra. Qual o papel do operador em sua célula para garantir o cumprimento de cada Requisito Obrigatório. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina as seis regras de outro da Cia e o que significa cada regra. Qual o papel do funcionário em sua célula para garantir o cumprimento de cada RO. </div> {{ form.q101(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> LOTOTO (lockout, tagout e testout) e SAM <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais os conceitos de lockout, tagout e testout, qual o procedimento de utilização destas ferramentas e em que atividades utilizar o LOTOTO. Conceito de SAM e cuidados ao acessar maquinas. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina os conceitos de lockout, tagout e testout, qual o procedimento de utilização destas ferramentas e em que atividades utilizar o LOTOTO. Conceito de SAM e cuidados ao acessar maquinas.</div> {{ form.q102(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> PTs (Permissões de trabalho) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais os tipos de PTs que usamos na Cia, e em que tipos de atividades são utilizadas, quais os profissionais envolvidos para a avaliação, preenchimento, aprovações e liberação dos serviços. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina os tipos de PTs que usamos na Cia, e em que tipos de atividades são utilizadas, quais os profissionais envolvidos para a avaliação, preenchimento, aprovações e liberação dos serviços.</div> {{ form.q103(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Incidente / Quase acidente <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço qual o registro da investigação, quem participa e quais as etapas de investigação. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina o registro da investigação, quem participa e quais as etapas de investigação.</div> {{ form.q104(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Curva de Bradley <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço qual as classificações da Curva de Bradley de acidentes e ou célula. Como está a pirâmide da linha da área. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina qual a formação da pirâmide de acidentes e ou célula. Como está a pirâmide da linha da área.</div> {{ form.q105(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Instrumentação avançada (identificação e calibração) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais o principais indicadores de segurança da célula, da linha, da área e da unidade. <div id="comentario">O funcionário possui conhecimento e sabe utilizar na rotina quais os principais indicadores de segurança da célula, da linha, da área e da unidade.</div> {{ form.q106(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    </div>
+    <button  type="submit" class="btnformskap"> Enviar Formulário</button>
+</form>
+</section>
+{% endblock %}

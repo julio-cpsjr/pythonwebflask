@@ -1,0 +1,142 @@
+.form{
+    display: flex-box;
+    padding: 1em;
+    background-color: #222;
+}
+.form h4{
+    padding-left: 1em;
+    color: #222;
+    border: solid;
+    border-radius: .5em;
+    border-color: #ffbb33;
+    background-color: #ffbb33;
+    font-size: 1.2em;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+.form h3{
+    padding-left: 21.5em;
+    border-radius: .5em; 
+    border: solid;
+    background-color: #ffbb33;
+    border-color: #ffbb33;
+    color: #222;
+}
+
+h5 {
+    padding-left: 2.5em;
+    color: #fff;
+}
+
+.logo{
+    display: flex;
+    justify-content: start;
+    border-radius: .5em;
+}
+
+.btnformskap{
+    background-color: #222;
+    color: #fff;
+    padding: 0.7em 1.2em;
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    border-color: #ffbb33;
+    border-radius: .5em;
+}
+
+.btnformskap:hover{
+    color: #222;
+    background-color: #ffbb33;
+    border-color: #fff;
+}
+
+.div_hover{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding-top: 1em;;
+}
+
+.input{
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}   
+
+
+hr{
+    color: #fff;
+}
+
+.div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 1em;
+    color: #fff;
+}
+
+.div label{
+    margin-bottom: .6em;
+    font-weight: bold;
+}
+
+.form input{
+    padding: .7em;
+    border-radius: .5em;
+    border: none;
+    color: #222;
+    width: 20%;
+}
+
+.div input::placeholder{
+    color: #7b7b7b;
+}
+
+.div input[type=number]{
+    width:5%;
+}
+
+.div input[type=text]{
+    width: 10%;
+}
+
+section{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.form_div{
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+
+#comentario {
+    position:relative;
+    left:-10px;
+    padding:2px;
+    line-height:20px;
+    background:#ffbb33;
+    color:black;
+    display: block;
+    width:700px;
+    opacity: 0;
+    border-radius: .5em;
+    margin-left: 1.5em;
+    
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+   
+#question:hover  #comentario{
+      opacity: 1;
+}

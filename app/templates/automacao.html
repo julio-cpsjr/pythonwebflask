@@ -1,0 +1,208 @@
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.module.css')}}">
+<section>
+<div>
+    <h5> {{ info }}, preencha a Skap com atenção </h5>
+</div>
+<form action="" method="POST" class="form">
+    {{ form.csrf_token }}
+    <img class="logo" src="{{ url_for('static', filename='img/trilhadecarreira.png')}}" alt='Trilha de carreira' />
+    <br/>
+    <h3> SKAP ONLINE -  Técnico em {{current_user.cargo}} </h3>
+    
+    <div class="input">
+        <div class="form_div">
+            <label>Nome: </label>
+            {{ current_user.name }}
+        </div>    
+        <div class="form_div">
+            <label>Área: </label>
+            {{ current_user.area}}
+        </div>
+        <div class="form_div">
+            <label>ID: </label>
+            {{ current_user.number_id}}
+        </div>
+        <div class="form_div">
+            <label>Turno: </label>
+            {{ current_user.turno}}
+        </div>
+    </div>
+    <hr/>
+    <div class="div">
+    <h4> Análise de Problemas  <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question" >Conheço e executo as ferramentas básicas de solução de problemas (5 PQs, relato de anomalia).<div id="comentario" >O funcionário conhece e executa as ferramentas básicas de solução de problemas (5 pqs, relato de anomalia)</div> {{ form.q1(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço as principais causas de anomalias dos indicadores de . <div id="comentario">O funcionário conhece as principais causas de anomalias dos indicadores de</div> {{ form.q2(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Gero ações para tratativa para os problemas dentro do turno. <div id="comentario">O funcionário gera ações para tratativa para os problemas dentro do turno.</div> {{ form.q3(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Direciono a operação na solução dos problemas. <div id="comentario">O funcionário direciona a operação na solução dos problemas</div> {{ form.q4(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Gestão de Indicadores <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o sonho da área, principais Ivs e Entendo o seu papel na área. <div id="comentario">O funcionário  conhece o sonho da área, principais ivs e entende o seu papel na área</div> {{ form.q5(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Entendo e Sei explicar o cascateamento de Ivs (estratégia  reunião diária  troca de turno). <div id="comentario">O funcionário  entende e sabe explicar o cascateamento de ivs (estratégia reunião diária troca de turno)</div> {{ form.q6(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço sua meta diária e gerencia o próprio resultado no dia a dia. <div id="comentario">O funcionário  conhece sua meta diária e gerencia o próprio resultado no dia a dia</div> {{ form.q7(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Treino demais funcionários nas ferramentas de gestão. <div id="comentario">O funcionário  treina demais conferentes nas ferramentas de gestão</div> {{ form.q8(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Segurança <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Possuo conhecimento dos padrões de atividades críticas. <div id="comentario">O funcionário possui conhecimento dos padrões de atividades críticas</div> {{ form.q9(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Executo as tarefas de segurança (relato de incidente, abordagem, condição insegura). <div id="comentario">O funcionário executa as tarefas de segurança (relato de incidente, abordagem, condição insegura.)</div> {{ form.q10(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Conheço os últimos SIFs da área e principais saídas. <div id="comentario">O funcionário conhece os últimos sifs da área e principais saídas</div> {{ form.q11(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sei analisar os principais indicadores de produtividade relacionado a atividades críticas e sua correlação com segurança. <div id="comentario">O funcionário sabe analisar os principais indicadores de produtividade relacionado a atividades críticas e sua correlação com segurança </div> {{ form.q12(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Busco melhoria continua nos processos e condições em prol de segurança. <div id="comentario">O funcionário busca melhoria continua nos processos e condições em prol de segurança</div> {{ form.q13(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Programação <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento em programação de PLC (ladder, FBD). <div id="comentario">O funcionário conhecimento em programação de plc (ladder, fbd)</div> {{ form.q14(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento de raciocínio lógico de programação (C,C++, Java). <div id="comentario">O funcionário conhecimento de raciocínio lógico de programação (c,c++, java)</div> {{ form.q15(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento Básico de Malhas de Controle (proporcional, PID, fuzzy, IA). <div id="comentario">O funcionário conhecimento básico de malhas de controle (proporcional, pid, fuzzy, ia)</div> {{ form.q16(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Programação em PLC: Sou capaz de  criar funções e mover dados no código. <div id="comentario">O funcionário programação em plc: capacidade de criar funções e mover dados no código.</div> {{ form.q17(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento básico em programação de supervisórios e IHM (SCADA...). <div id="comentario">O funcionário conhecimento básico em programação de supervisórios e ihm (scada...)</div> {{ form.q18(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em extração e Sou capaz de  link com disponibilidade de dados por telemetria. <div id="comentario">O funcionário conhecimento em extração e capacidade de link com disponibilidade de dados por telemetria. </div> {{ form.q19(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  criação e gestão de Bis. <div id="comentario">O funcionário capacidade de criação e gestão de bis</div> {{ form.q20(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo programação em PLC: criação de lógicas mais complexas e otimizadas. <div id="comentario">O funcionário realiza programação em plc: criação de lógicas mais complexas e otimizadas.</div> {{ form.q21(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento mais avançado em Telemetria: capaz de estimular novas tecnologias e ferramentas. <div id="comentario">O funcionário tem conhecimento mais avançado em telemetria: capaz de estimular novas tecnologias e ferramentas.</div> {{ form.q22(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento avançado em Programação (LADDER)  capaz de escrever a lógica de forma otimizada e programação em lista. <div id="comentario">O funcionário tem conhecimento avançado em programação (ladder)   capaz de escrever a lógica de forma otimizada e programação em lista.</div> {{ form.q23(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  criação e edição de telas supervisório mais complexas. <div id="comentario">O funcionário tem capacidade de criação e edição de telas supervisório mais complexas.</div> {{ form.q24(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  configurar sistemas de controle (exemplo: PID). <div id="comentario">O funcionário tem capacidade de configurar sistemas de controle (exemplo: pid)</div> {{ form.q25(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Instrumentação <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento básico em metrologia e calibração de instrumentos. <div id="comentario">O funcionário tem conhecimento básico em metrologia e calibração de instrumentos</div> {{ form.q26(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento dos padrões de instrumentação (legislação). <div id="comentario">O funcionário tem conhecimento dos padrões de instrumentação (legislação)</div> {{ form.q27(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sei interpretar os digramas de instrumentação. <div id="comentario">O funcionário sabe interpretar os digramas de instrumentação</div> {{ form.q28(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar manutenção preventiva em analítico. <div id="comentario">O funcionário tem capacidade de realizar manutenção preventiva em analítico</div> {{ form.q29(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a baixa nos lotes de controle (Tenho conhecimento básico SAP). <div id="comentario">O funcionário realiza a baixa nos lotes de controle (conhecimento básico sap)</div> {{ form.q30(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Redes <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento básico cybersecurity e instalação de antivírus. <div id="comentario">O funcionário tem conhecimento básico cybersecurity e instalação de antivírus</div> {{ form.q31(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  estabelecer sistemas e servidores em caso de falhas. <div id="comentario">O funcionário tem capacidade de estabelecer sistemas e servidores em caso de falhas</div> {{ form.q32(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar gestão de backups. Realizando a comparação e execução do histórico de Backups. <div id="comentario">O funcionário tem capacidade de realizar gestão de backups. realizando a comparação e execução do histórico de backups</div> {{ form.q33(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  inclusão de novos periféricos na rede (Asi). <div id="comentario">O funcionário tem capacidade de inclusão de novos periféricos na rede (asi)</div> {{ form.q34(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  instalação de drivers em periféricos de automação e gerenciamento de redes. <div id="comentario">O funcionário tem capacidade de instalação de drivers em periféricos de automação e gerenciamento de redes</div> {{ form.q35(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  utilizar instrumentos de diagnóstico de rede industrial. <div id="comentario">O funcionário tem capacidade de utilizar instrumentos de diagnóstico de rede industrial</div> {{ form.q36(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  inclusão de novos periféricos na rede (Ethernet, Modbus,Profibus). <div id="comentario">O funcionário tem capacidade de inclusão de novos periféricos na rede (ethernet, modbus,profibus)</div> {{ form.q37(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em Servo: Sou capaz de  configuração de drive em malha (com multivariáveis de controle). <div id="comentario">O funcionário tem conhecimento em servo: capacidade de configuração de drive em malha (com multivariáveis de controle)</div> {{ form.q38(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em Infra de Redes. <div id="comentario">O funcionário tem conhecimento em infra de redes</div> {{ form.q39(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  configurar rede e realizar análises de falhas de redes industriais. <div id="comentario">O funcionário tem capacidade de configurar rede e realizar análises de falhas de redes industriais</div> {{ form.q40(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar configuração do switch,cabeamento estruturado e Vlans. <div id="comentario">O funcionário tem capacidade de realizar configuração do switch</div> {{ form.q41(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar alterações em Redes e em Drives de Comunicação (Atualizações). <div id="comentario">O funcionário tem capacidade de realizar alterações em redes e em drives de comunicação (atualizações)</div> {{ form.q42(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Inversores, Servos & Sensores <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento sobre o funcionamento dos sensores. <div id="comentario">O funcionário tem conhecimento sobre o funcionamento dos sensores</div> {{ form.q43(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar configuração de inversores e ligações (inversores, motores e soft). <div id="comentario">O funcionário tem capacidade de realizar configuração de inversores e ligações (inversores, motores e soft)</div> {{ form.q44(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar comunicações com servo motor e identificar falhas. <div id="comentario">O funcionário tem capacidade de realizar comunicações com servo motor e identificar falhas</div> {{ form.q45(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar corretiva e preventiva em servos. <div id="comentario">O funcionário tem capacidade de realizar corretiva e preventiva em servos</div> {{ form.q46(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  configurar atividades simples em drive de servo. (sentido de giro, aceleração, etc.). <div id="comentario">O funcionário tem capacidade de configurar atividades simples em drive de servo (sentido de giro, aceleração, etc.)</div> {{ form.q47(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento de troca de palavras entre inversor e PLC (controle do inversor via rede). <div id="comentario">O funcionário tem conhecimento de troca de palavras entre inversor e plc (controle do inversor via rede)</div> {{ form.q48(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  acesso e identificação de falhas e Consigo configurar subconjunto novo (servo). <div id="comentario">O funcionário tem capacidade de acesso e identificação de falhas e consegue configurar subconjunto novo (servo)</div> {{ form.q49(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar diagnóstico de problemas relacionado a sensores. <div id="comentario">O funcionário tem capacidade de realizar diagnóstico de problemas relacionado a sensores</div> {{ form.q50(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Capacidade de manutenção e realizar ajustes de encoder de Servo Motor. <div id="comentario">O funcionário tem capacidade de manutenção e realizar ajustes de encoder de servo motor</div> {{ form.q51(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar análises de falha de Drive e Servo Motor. <div id="comentario">O funcionário tem capacidade de realizar análises de falha de drive e servo motor</div> {{ form.q52(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  projetar e implementar automação de processos manuais. <div id="comentario">O funcionário tem capacidade de projetar e implementar automação de processos manuais.</div> {{ form.q53(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  extrair dados de qualquer equipamento e inserir em algum sistema de visualização (Ex. BI). <div id="comentario">O funcionário tem capacidade de extrair dados de qualquer equipamento e inserir em algum sistema de visualização (ex. bi)</div> {{ form.q54(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Eletrônica <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento elétrico l NÍVEL FABRIL NR10. <div id="comentario">O funcionário tem conhecimento elétrico l nível fabril nr10</div> {{ form.q55(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em eletrônica básica: componentes e placas eletrônicas. <div id="comentario">O funcionário tem conhecimento em eletrônica básica: componentes e placas eletrônicas.</div> {{ form.q56(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  utilizar as principais ferramentas de eletrônica (osciloscópio, multímetro, ferro de solda). <div id="comentario">O funcionário tem capacidade de utilizar as principais ferramentas de eletrônica (osciloscópio, multímetro, ferro de solda)</div> {{ form.q57(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento das boas práticas de instalação e práticas preventiva em painéis e refrigeração. <div id="comentario">O funcionário tem conhecimento das boas práticas de instalação e práticas preventiva em painéis e refrigeração.</div> {{ form.q58(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar recuperação "física" no painel. <div id="comentario">O funcionário tem capacidade de realizar recuperação "física" no painel.</div> {{ form.q59(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Computadores & Cyber Security <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento Básico de Cybersecurity. <div id="comentario">O funcionário tem conhecimento básico de cybersecurity</div> {{ form.q60(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento avançado em computadores (instalação de qualquer software, diagnóstico de problemas, instalação de sistemas operacionais). <div id="comentario">O funcionário tem conhecimento avançado em computadores (instalação de qualquer software, diagnóstico de problemas, instalação de sistemas operacionais)</div> {{ form.q61(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em microcontroladores. <div id="comentario">O funcionário tem conhecimento em microcontroladores</div> {{ form.q62(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consigo propor melhorias em qualidade de energia. <div id="comentario">O funcionário consegue propor melhorias em qualidade de energia.</div> {{ form.q63(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em Cybersecurity  Realizo a procura ativa de falhas de segurança e Realizo a investigação de ataques. <div id="comentario">O funcionário tem conhecimento em cybersecurity   realiza a procura ativa de falhas de segurança e realiza a investigação de ataques</div> {{ form.q64(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  Recuperar Sistemas Automáticos  Infra + Painel + Backup (Desaster Recovery). <div id="comentario">O funcionário tem capacidade de recuperar sistemas automáticos   infra + painel + backup (desaster remover)</div> {{ form.q65(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Dados <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento em Banco de dados  Sou capaz de  inserir novos dados e consultar. <div id="comentario">O funcionário tem conhecimento em banco de dados   capacidade de inserir novos dados e consultar</div> {{ form.q66(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de realizar tratamento de dados. <div id="comentario">O funcionário tem capacidade de realizar tratamento de dados</div> {{ form.q67(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de realizar coleta de dados e propor diferentes formas de coletar. <div id="comentario">O funcionário tem capacidade de realizar coleta de dados e propor diferentes formas de coletar</div> {{ form.q68(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de realizar análises estatísticas a partir dos dados coletados. <div id="comentario">O funcionário tem capacidade de realizar análises estatísticas a partir dos dados coletados</div> {{ form.q69(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a manutenção de banco de dados. <div id="comentario">O funcionário realiza a manutenção de banco de dados</div> {{ form.q70(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de realizar configuração de acesso remoto a servidores. <div id="comentario">O funcionário tem capacidade de realizar configuração de acesso remoto a servidores.</div> {{ form.q71(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a manutenção de máquinas virtuais. <div id="comentario">O funcionário realiza a manutenção de máquinas virtuais</div> {{ form.q72(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Robótica & Automação em Geral <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento básico em robótica. <div id="comentario">O funcionário tem conhecimento básico em robótica</div> {{ form.q73(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  desenvolver controles de processos e propor automação de processos manuais. <div id="comentario">O funcionário tem capacidade de desenvolver controles de processos e propor automação de processos manuais</div> {{ form.q74(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar diagnósticos e melhorias básicas. <div id="comentario">O funcionário tem capacidade de realizar diagnósticos e melhorias básicas</div> {{ form.q75(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a manutenção de robôs existentes da unidade. <div id="comentario">O funcionário realiza a manutenção de robôs existentes da unidade</div> {{ form.q76(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a gestão de mudanças para automação. <div id="comentario">O funcionário realiza a gestão de mudanças para automação</div> {{ form.q77(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  implantação de gestão de mudanças. <div id="comentario">O funcionário tem capacidade de implantação de gestão de mudanças</div> {{ form.q78(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento avançado de robótica. <div id="comentario">O funcionário tem conhecimento avançado de robótica</div> {{ form.q79(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  otimizar a programação de robôs existentes na unidade. <div id="comentario">O funcionário possui capacidade de otimizar a programação de robôs existentes na unidade</div> {{ form.q80(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> IIOT <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimentos em IIOT ( industrial internet of things). <div id="comentario">O funcionário possui conhecimentos em IIOT ( industrial internet of things)</div> {{ form.q81(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a Calibração em IOT. <div id="comentario">O funcionário realiza a calibração em IOT</div> {{ form.q82(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo a gestão do bloco controle e automação (Pilar Manutenção). <div id="comentario">O funcionário realiza a gestão do bloco controle e automação (pilar manutenção)</div> {{ form.q83(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em Visão computacional: Produção. <div id="comentario">O funcionário possui conhecimento em visão computacional: produção</div> {{ form.q84(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo aplicações práticas em IIOT ( industrial internet of things). <div id="comentario">O funcionário realiza aplicações práticas em iiot ( industrial internet of things)</div> {{ form.q85(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Big Data & Machine Learning <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Tenho conhecimento de Estatística e Lógica aplicados a Big Data. <div id="comentario">O funcionário possui conhecimento de estatística e lógica aplicados a big data</div> {{ form.q86(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento em Big data e Data Analytics. <div id="comentario">O funcionário possui conhecimento em big data e data analytics</div> {{ form.q87(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Sou capaz de  realizar Modelagem de dados e Machine Learning. <div id="comentario">O funcionário possui capacidade de realizar modelagem de dados e machine learning</div> {{ form.q88(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Realizo gestão de Projetos com IA. <div id="comentario">O funcionário realiza gestão de projetos com IA</div> {{ form.q89(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Tenho conhecimento básico de IA. <div id="comentario">O funcionário possui conhecimento básico de IA</div> {{ form.q90(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> SAP / Excel / Power BI / WMS <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Consigo utilizar o sistema SAP. <div id="comentario">O funcionário consegue utilizar o SAP</div> {{ form.q91(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consigo utilizar o sistema SODA. <div id="comentario">O funcionário consegue utilizar o SODA</div> {{ form.q92(class="form_control", placeholder="0") }}</div>
+    <div class="div_hover" id="question"> Consigo utilizar o Grafana. <div id="comentario">O funcionário consegue utilizar o Grafana</div> {{ form.q93(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Food Safety <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito e papel da operação para a segurança alimentar. <div id="comentario">O funcionário possui conhecimento sobre o conceito e papel da operação para a segurança alimentar.</div> {{ form.q94(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> HACCP (CCP) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço qual o conceito e qual o CCP na máquina e célula. Quais os registros. <div id="comentario">O funcionário possui conhecimento sobre  o conceito e qual o CCP na máquina e célula. Quais os registros.</div> {{ form.q95(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> GMP (BPF - boas práticas de fabricação) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço as principais formas de se realizar boas práticas de produção. <div id="comentario">O funcionário possui conhecimento sobre as principais formas de se realizar boas práticas de produção.</div> {{ form.q96(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Índices de controle (ICs) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito, quais os Índices de controle de minha máquina e célula, e registro. Como são discutidos em reuniões do time. <div id="comentario">O funcionário possui conhecimento sobre o conceito quais os Índices de controle de sua máquina e célula,  e registro. Como são discutidos em reuniões do time.</div> {{ form.q97(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Reclamação de Mercado (SAC) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o conceito de SAC, como ocorre e quais as ações de prevenção na operação. <div id="comentario">O funcionário possui conhecimento sobre o conceito de SAC, como ocorre e quais as ações de prevenção na operação.</div> {{ form.q98(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Indicadores de qualidade <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço os principais indicadores de qualidade de sua célula ou da linha. <div id="comentario">O funcionário possui conhecimento sobre as principais indicadores de qualidade de sua célula ou da linha.</div> {{ form.q99(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-10 (eletricidade) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q100(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Nr-12 (máquinas & equipamentos) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q101(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4>NR-13 (caldeiras e vasos de pressão) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q102(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-33 (espaço confinado) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q103(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> NR-35 (serviços em altura) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais as principais exigências desta NR e aplicação em sua máquina e célula. <div id="comentario">O funcionário possui conhecimento sobre as principais exigências desta NR e aplicação em sua máquina e célula.</div> {{ form.q104(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> APR (análise preliminar de riscos) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço como realizar esta análise de forma que se remeta a segurança plena numa atividade, importância da FISPQ no manuseio de produtos químicos e como utilizar adequadamente. <div id="comentario">O funcionário possui conhecimento sobre como realizar esta análise de forma que se remeta a segurança plena numa atividade, importância da FISPQ no manuseio de produtos químicos e como utilizar adequadamente.</div> {{ form.q105(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> EPIs <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço Conceito e quais os principais EPIs utilizados na operação do equipamento e na célula. <div id="comentario">O funcionário possui conhecimento sobre o conceito e quais os principais EPIs utilizados na operação do equipamento e na célula. </div> {{ form.q106(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Regras de ouro <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais são as  seis regras de outro da Cia e o que significa cada regra. Qual o papel do operador em sua célula para garantir o cumprimento de cada requisito obrigatório. <div id="comentario">O funcionário possui conhecimento sobre as seis regras de outro da Cia e o que significa cada regra. Qual o papel do operador em sua célula para garantir o cumprimento de cada uma delas. </div> {{ form.q107(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> LOTOTO (lockout, tagout e testout) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais os conceitos de lockout, tagout e testout, qual o procedimento de utilização destas ferramentas e em que atividades utilizar o LOTOTO. Conceito de SAM e cuidados ao acessar maquinas. <div id="comentario">O funcionário possui conhecimento sobre os conceitos de lockout, tagout e testout, qual o procedimento de utilização destas ferramentas e em que atividades utilizar o LOTOTO. Conceito de SAM e cuidados ao acessar maquinas.</div> {{ form.q108(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> PTs (Permissões de trabalho) <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço o tipos de PTs que usamos na Cia, e em que tipos de atividades são utilizadas, quais os profissionais envolvidos para a avaliação, preenchimento, aprovações e liberação dos serviços. <div id="comentario">O funcionário possui conhecimento sobre os tipos de PTs que usamos na Cia, e em que tipos de atividades são utilizadas, quais os profissionais envolvidos para a avaliação, preenchimento, aprovações e liberação dos serviços.</div> {{ form.q109(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    <h4> Indicadores de segurança <span>1 - Sim 0 - Não</span></h4>
+    <div class="div_hover" id="question"> Conheço quais o principais indicadores de segurança da célula, da linha, da área e da unidade. <div id="comentario">O funcionário possui conhecimento sobre quais o principais indicadores de segurança da célula, da linha, da área e da unidade.</div> {{ form.q110(class="form_control", placeholder="0") }}</div>
+    <hr/>
+    </div>
+    <button  type="submit" class="btnformskap"> Enviar Formulário</button>
+</form>
+</section>

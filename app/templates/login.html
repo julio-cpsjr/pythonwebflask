@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.module.css')}}">
+<section >
+    <div class="div_screen">
+        <h2>Login</h2>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label >Username</label>
+                {{ form.username(class="form-control", placeholder="Usuario")}}
+            </div>
+            <div class="form-group">
+                <label >Password</label>
+                {{ form.password(class="form-control",placeholder="Senha")}} 
+            </div>
+            <br/>
+            <div>
+                <p>Caso não tenha cadastro: <a href="{{url_for('register')}}"> Clique aqui</a></p> 
+            </div>
+            <button type="submit" class="btnformskap">Submit</button>
+        </form>
+    </div>
+</section>
+
+{% endblock%}
